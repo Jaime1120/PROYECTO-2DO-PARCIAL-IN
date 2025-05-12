@@ -1,0 +1,918 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/6/2025 5:05:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="MAURICIO"
+  DTS:CreatorName="MAURICIO\mauri"
+  DTS:DTSID="{E15B5632-F379-4815-ABB1-1FEF9E758B5C}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{E945C202-BFB9-4F49-980A-96D9FB9009E7}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{8186F662-A1E6-40F9-8FB3-E254A7D90595}"
+      DTS:ObjectName="Administrador de conexiones con Excel">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="0"
+          DTS:ConnectRetryInterval="0"
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.16.0;Data Source=C:\Users\mauri\OneDrive\Escritorio\Dataware_Hause\Datos\Datos.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[MAURICIO.dw_servicios]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{5D00EC40-B3A3-4CFF-B79F-A0E61157B981}"
+      DTS:ObjectName="MAURICIO.dw_servicios">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=MAURICIO;Initial Catalog=dw_servicios;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Package-{5D00EC40-B3A3-4CFF-B79F-A0E61157B981}MAURICIO.dw_servicios;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ProcesoETL"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5EF8C5CA-BC01-4CB2-803F-BC9EFBF5666B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ProcesoETL"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ProcesoETL\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[carrera_id]"
+                      cachedDataType="r8"
+                      cachedName="carrera_id"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[carrera_id]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[codigo_carrera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="codigo_carrera"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[codigo_carrera]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[nombre_carrera]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nombre_carrera"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nombre_carrera]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[area_conocimiento]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="area_conocimiento"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[area_conocimiento]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="departamento"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[departamento]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[creditos_totales]"
+                      cachedDataType="r8"
+                      cachedName="creditos_totales"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[creditos_totales]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[duracion_semestres]"
+                      cachedDataType="r8"
+                      cachedName="duracion_semestres"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[duracion_semestres]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input].Columns[nivel_academico]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="nivel_academico"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nivel_academico]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of carrera_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of carrera_id]"
+                      name="Copy of carrera_id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[carrera_id]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of codigo_carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="10"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of codigo_carrera]"
+                      name="Copy of codigo_carrera"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[codigo_carrera]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_carrera]"
+                      name="Copy of nombre_carrera"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nombre_carrera]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of area_conocimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of area_conocimiento]"
+                      name="Copy of area_conocimiento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[area_conocimiento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of departamento]"
+                      name="Copy of departamento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[departamento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of creditos_totales]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of creditos_totales]"
+                      name="Copy of creditos_totales"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[creditos_totales]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of duracion_semestres]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of duracion_semestres]"
+                      name="Copy of duracion_semestres"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[duracion_semestres]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nivel_academico]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nivel_academico]"
+                      name="Copy of nivel_academico"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nivel_academico]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProcesoETL\Excel Source"
+              componentClassID="Microsoft.ExcelSource"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">carreras$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProcesoETL\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  connectionManagerRefId="Package.ConnectionManagers[Administrador de conexiones con Excel]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[carrera_id]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[carrera_id]"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[carrera_id]"
+                      name="carrera_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[codigo_carrera]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[codigo_carrera]"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[codigo_carrera]"
+                      name="codigo_carrera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nombre_carrera]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[nombre_carrera]"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nombre_carrera]"
+                      name="nombre_carrera"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[area_conocimiento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[area_conocimiento]"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[area_conocimiento]"
+                      name="area_conocimiento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[departamento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[departamento]"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[departamento]"
+                      name="departamento"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[creditos_totales]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[creditos_totales]"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[creditos_totales]"
+                      name="creditos_totales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[duracion_semestres]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[duracion_semestres]"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[duracion_semestres]"
+                      name="duracion_semestres"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nivel_academico]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[nivel_academico]"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].Columns[nivel_academico]"
+                      name="nivel_academico"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[carrera_id]"
+                      dataType="r8"
+                      name="carrera_id" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[codigo_carrera]"
+                      dataType="wstr"
+                      length="255"
+                      name="codigo_carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[nombre_carrera]"
+                      dataType="wstr"
+                      length="255"
+                      name="nombre_carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[area_conocimiento]"
+                      dataType="wstr"
+                      length="255"
+                      name="area_conocimiento" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[departamento]"
+                      dataType="wstr"
+                      length="255"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[creditos_totales]"
+                      dataType="r8"
+                      name="creditos_totales" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[duracion_semestres]"
+                      dataType="r8"
+                      name="duracion_semestres" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output].ExternalColumns[nivel_academico]"
+                      dataType="wstr"
+                      length="255"
+                      name="nivel_academico" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[carrera_id]"
+                      dataType="r8"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[carrera_id]"
+                      name="carrera_id" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[codigo_carrera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[codigo_carrera]"
+                      name="codigo_carrera" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[nombre_carrera]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[nombre_carrera]"
+                      name="nombre_carrera" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[area_conocimiento]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[area_conocimiento]"
+                      name="area_conocimiento" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[departamento]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[departamento]"
+                      name="departamento" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[creditos_totales]"
+                      dataType="r8"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[creditos_totales]"
+                      name="creditos_totales" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[duracion_semestres]"
+                      dataType="r8"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[duracion_semestres]"
+                      name="duracion_semestres" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[nivel_academico]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[nivel_academico]"
+                      name="nivel_academico" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProcesoETL\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[dim_carrera]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProcesoETL\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[MAURICIO.dw_servicios]"
+                  connectionManagerRefId="Package.ConnectionManagers[MAURICIO.dw_servicios]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of carrera_id]"
+                      cachedDataType="i4"
+                      cachedName="Copy of carrera_id"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[carrera_id]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of carrera_id]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of codigo_carrera]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="Copy of codigo_carrera"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[codigo_carrera]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of codigo_carrera]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of nombre_carrera]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of nombre_carrera"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_carrera]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nombre_carrera]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of area_conocimiento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of area_conocimiento"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[area_conocimiento]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of area_conocimiento]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of departamento]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Copy of departamento"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of departamento]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of creditos_totales]"
+                      cachedDataType="i4"
+                      cachedName="Copy of creditos_totales"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[creditos_totales]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of creditos_totales]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of duracion_semestres]"
+                      cachedDataType="i4"
+                      cachedName="Copy of duracion_semestres"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duracion_semestres]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of duracion_semestres]" />
+                    <inputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Copy of nivel_academico]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="Copy of nivel_academico"
+                      externalMetadataColumnId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nivel_academico]"
+                      lineageId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output].Columns[Copy of nivel_academico]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[carrera_id]"
+                      dataType="i4"
+                      name="carrera_id" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[codigo_carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="codigo_carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nombre_carrera]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="nombre_carrera" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[area_conocimiento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="area_conocimiento" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[departamento]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="departamento" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[creditos_totales]"
+                      dataType="i4"
+                      name="creditos_totales" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[duracion_semestres]"
+                      dataType="i4"
+                      name="duracion_semestres" />
+                    <externalMetadataColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[nivel_academico]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="nivel_academico" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProcesoETL\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProcesoETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProcesoETL\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ProcesoETL.Paths[Data Conversion Output]"
+              endId="Package\ProcesoETL\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\ProcesoETL\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ProcesoETL.Paths[Excel Source Output]"
+              endId="Package\ProcesoETL\Data Conversion.Inputs[Data Conversion Input]"
+              name="Excel Source Output"
+              startId="Package\ProcesoETL\Excel Source.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="136,41.6"
+          Id="Package\ProcesoETL"
+          TopLeft="354.66664922817,120.433332742718" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ProcesoETL">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\ProcesoETL\Excel Source"
+          TopLeft="203.999996960163,75.9999988675118" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\ProcesoETL\Data Conversion"
+          TopLeft="361.99999460578,196.999997064471" />
+        <EdgeLayout
+          Id="Package\ProcesoETL.Paths[Excel Source Output]"
+          TopLeft="273.999996960163,117.599998867512">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="165.999997645617,79.3999981969595"
+              Start="0,0"
+              End="165.999997645617,71.8999981969595">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.6999990984798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.6999990984798"
+                    Point2="0,39.6999990984798"
+                    Point3="4,39.6999990984798" />
+                  <mssgle:LineSegment
+                    End="161.999997645617,39.6999990984798" />
+                  <mssgle:CubicBezierSegment
+                    Point1="161.999997645617,39.6999990984798"
+                    Point2="165.999997645617,39.6999990984798"
+                    Point3="165.999997645617,43.6999990984798" />
+                  <mssgle:LineSegment
+                    End="165.999997645617,71.8999981969595" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="171.2,41.6"
+          Id="Package\ProcesoETL\OLE DB Destination"
+          TopLeft="528.999992117286,315.999995291233" />
+        <EdgeLayout
+          Id="Package\ProcesoETL.Paths[Data Conversion Output]"
+          TopLeft="439.99999460578,238.599997064471">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="174.599997511506,77.3999982267618"
+              Start="0,0"
+              End="174.599997511506,69.8999982267618">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.6999991133809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.6999991133809"
+                    Point2="0,38.6999991133809"
+                    Point3="4,38.6999991133809" />
+                  <mssgle:LineSegment
+                    End="170.599997511506,38.6999991133809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="170.599997511506,38.6999991133809"
+                    Point2="174.599997511506,38.6999991133809"
+                    Point3="174.599997511506,42.6999991133809" />
+                  <mssgle:LineSegment
+                    End="174.599997511506,69.8999982267618" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProcesoETL\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProcesoETL\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

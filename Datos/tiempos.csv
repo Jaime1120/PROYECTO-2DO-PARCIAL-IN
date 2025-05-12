@@ -1,0 +1,3 @@
+tiempo_id,hora,minuto,segundo,hora_24,hora_12,am_pm,periodo_dia,bloque_horario
+08:00:00,8,0,0,8,8,AM,Mañana,Matutino
+14:30:00,14,30,0,14,2,PM,Tarde,Vespertino

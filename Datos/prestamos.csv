@@ -1,0 +1,2 @@
+prestamo_id,usuario_id,responsable_id,equipo_id,sala_id,tipo_equipo_id,carrera_id,fecha_prestamo_id,hora_inicio_id,fecha_devolucion_id,hora_final_id,cantidad_prestada,turno,tipo_prestamo,estado_prestamo,pc_usada,numero_pc,motivo,observaciones,duracion_minutos,retraso_minutos,cantidad_equipos_total,cantidad_salas_total
+5001,u001,1,101,1,1,1,2024-04-01,08:00:00,2024-04-01,14:30:00,1,Matutino (7-14 hrs),Equipo,Devuelto,Prestada,3,Tarea grupal,,390,10,1,0

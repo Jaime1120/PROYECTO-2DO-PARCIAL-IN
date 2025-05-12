@@ -1,0 +1,3 @@
+fecha_id,dia,mes,anio,nombre_mes,trimestre,semestre,semana_anio,dia_semana,es_fin_semana,es_feriado,periodo_academico
+2024-04-01,1,4,2024,Abril,2,1,14,Lunes,0,0,2024-1
+2024-04-02,2,4,2024,Abril,2,1,14,Martes,0,0,2024-1

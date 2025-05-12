@@ -1,0 +1,3 @@
+sala_id,nombre_sala,capacidad,edificio,planta,numero_sala,equipo_disponible,estado,tipo_sala,tiene_proyector,tiene_pcs,pcs_disponibles,area_m2,responsable
+1,Sala A,25,A,1,101,Laptops,Disponible,Aula,0,1,10,35.5,Ing. Martínez
+2,Sala B,40,B,2,205,Proyector,Disponible,Laboratorio,1,0,0,50.0,Lic. Herrera

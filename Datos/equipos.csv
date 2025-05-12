@@ -1,0 +1,3 @@
+equipo_id,nombre_equipo,tipo_equipo_id,tipo_equipo_nombre,cantidad_total,cantidad_disponible,descripcion,codigo_barras,estado_actual,ubicacion_actual,fecha_adquisicion,valor_adquisicion,proveedor,garantia_hasta
+101,HP Pavilion,1,Laptop,10,7,Laptop para estudiantes,HP123456789,Disponible,Sala A,2022-02-01,15000,HP México,2024-02-01
+102,Epson X05,2,Proyector,5,5,Proyector multimedia,EP987654321,Disponible,Sala B,2021-06-10,8000,Epson,2023-06-10

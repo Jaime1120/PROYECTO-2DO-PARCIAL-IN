@@ -1,0 +1,3 @@
+carrera_id,codigo_carrera,nombre_carrera,area_conocimiento,departamento,creditos_totales,duracion_semestres,nivel_academico
+1,ISC,Ingeniería en Sistemas Computacionales,TIC,Ingeniería,300,9,Licenciatura
+2,LADM,Licenciatura en Administración,Económico-Administrativas,Administración,280,8,Licenciatura

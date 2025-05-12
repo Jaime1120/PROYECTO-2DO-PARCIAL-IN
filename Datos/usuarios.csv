@@ -1,0 +1,4 @@
+usuario_id,matricula,nombre,apellidos,sexo,correo_electronico,direccion,telefono,tipo_usuario,carrera_id,semestre_actual,edad,fecha_registro,activo
+u001,20200101,Juan,Pérez,H,juan.perez@univ.edu,Av. Universidad 123,5551234567,Estudiante,1,5,21,2023-01-15,1
+u002,20200102,Ana,López,M,ana.lopez@univ.edu,Calle Río 456,5557654321,Estudiante,2,3,20,2023-01-15,1
+u003,20190003,Carlos,Gómez,H,carlos.gomez@univ.edu,Calle Norte 789,5559999999,Docente,,null,35,2022-08-01,1

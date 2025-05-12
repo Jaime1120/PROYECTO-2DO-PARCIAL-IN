@@ -1,0 +1,2 @@
+reporte_id,usuario_solicitante_id,usuario_responsable_id,sala_id,fecha_reporte_id,hora_generacion_id,fecha_cierre_id,hora_cierre_id,tipo_problema,subtipo_problema,descripcion,estado,prioridad,tiempo_resolucion_minutos,equipos_afectados,requiere_externo,costo_reparacion
+10001,u002,u003,2,2024-04-02,14:30:00,,,"Software","Sistema operativo","La PC se queda congelada al iniciar sesión","Abierto","Alta",,1,0,
